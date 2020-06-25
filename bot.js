@@ -15,7 +15,7 @@ const snekfetch = require('snekfetch');
 
 const app = express();
 app.get("/", (request, response) => {
-  console.log(Date.now() + "Shydra 7/24 AKTİF TUTMA İŞLEMİ BAŞARILI");
+  console.log(Date.now() + "WhYBoLu Code v12 boş altyapı hostlandı!");
   response.sendStatus(200);
 });
 app.listen(process.env.PORT);
@@ -124,7 +124,8 @@ client.on('warn', e => {
 client.on('error', e => {
     console.log(chalk.bgRed(e.replace(regToken, 'that was redacted')));
 });
+//KOMUTLAR BURAYA
 
+
+//KOMUTLAR BİTİŞ
 client.login(ayarlar.token);
-
-//---------------------------------KOMUTLAR---------------------------------\\

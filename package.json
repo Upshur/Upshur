@@ -1,12 +1,12 @@
 {
-  "//1": "Bu Altyapı Tamamen Shydra Codeye Aittir.",
-  "//2": "https://discord.gg/xhyQXPN",
+  "//1": "WhYBoLu v12 boş altyapı",
+  "//2": "https://discord.gg/SarrpTh",
   "name": "hello-express",
   "version": "0.0.1",
-  "description": "Bu Altyapı Tamamen Shydra Codeye Aittir.",
-  "main": "shydracode.js",
+  "description": "Bu altyapı WhYBoLu Codeye aittir çalınması yasaktır!.",
+  "main": "bot.js",
   "scripts": {
-    "start": "node shydracode.js"
+    "start": "node bot.js"
   },
   "dependencies": {
     "express": "^4.17.1",

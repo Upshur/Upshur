@@ -1,4 +1,3 @@
-// Bu Altyapı Tamamen Shydra Codeye Aittir.
 const request = require('node-superfetch');
 const crypto = require('crypto');
 const { IMGUR_KEY } = process.env;
@@ -124,4 +123,3 @@ class Util {
 }
 
 module.exports = Util;
-// Bu Altyapı Tamamen Shydra Codeye Aittir.

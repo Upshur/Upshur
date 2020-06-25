@@ -1,4 +1,3 @@
-// Bu Altyapı Tamamen Shydra Codeye Aittir.
 const chalk = require("chalk");
 const moment = require("moment");
 const Discord = require("discord.js");
@@ -7,27 +6,12 @@ const ayarlar = require("../ayarlar.json");
 var prefix = ayarlar.prefix;
 
 module.exports = client => {
-  console.log(
-    `[${moment().format("YYYY-MM-DD HH:mm:ss")}] BOT: Aktif, Komutlar yüklendi!`
-  );
-  console.log(
-    `[${moment().format("YYYY-MM-DD HH:mm:ss")}] BOT: ${
-      client.user.username
-    } ismi ile giriş yapıldı!`
-  );
+  console.log(`[${moment().format("YYYY-MM-DD HH:mm:ss")}] BOT: Aktif, Komutlar yüklendi!`);
+  console.log(`[${moment().format("YYYY-MM-DD HH:mm:ss")}] BOT: ${client.user.username} ismi ile giriş yapıldı!`);
+  console.log(`Altyapı yapımcısı: TheClawNz.rht#6717`)
   client.user.setStatus("online");
   var oyun = [
-    "S",
-    "Sh",
-    "Shy",
-    "Shyd",
-    "Shydr",
-    "Shydra",
-    "Shydr",
-    "Shyd",
-    "Shy",
-    "Sh",
-    "S"
+    "WhYBoLu Code v12 boş altyapı"
   ];
 
   setInterval(function() {
@@ -36,4 +20,3 @@ module.exports = client => {
     client.user.setActivity(oyun[random], "");
   }, 2 * 2500);
 };
-// Bu Altyapı Tamamen Shydra Codeye Aittir.

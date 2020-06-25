@@ -1,6 +1,6 @@
-// Bu Altyapı Tamamen Shydra Codeye Aittir.Lisanslı Altyapıdır.Çalınması Durumunda Cezai İşlem Uygulanır.
-const Discord = require('discord.js');
-module.exports = member => {
-  
-};
-// Bu Altyapı Tamamen Shydra Codeye Aittir.Lisanslı Altyapıdır.Çalınması Durumunda Cezai İşlem Uygulanır.
+const Discord = require("discord.js");
+const client = new Discord.Client();
+
+client.on("guildMemberRemove", (member, message) => {
+  member.send(`Olamaz! Sunucumuzdan ayrıldıgını gördüm :( umarım tekrardan gelirsin!`)
+})

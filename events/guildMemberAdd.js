@@ -1,4 +1,6 @@
 const Discord = require("discord.js");
-module.exports = member => {
+const client = new Discord.Client();
 
-};
+client.on("guildMemberAdd", (member, message) => {
+  member.send(`Sunucumuza hoşgeldin seninle birlikte ${message.guild.memberCount} Kişiyiz!`)
+})
