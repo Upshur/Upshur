@@ -1,12 +1,11 @@
 {
-  "//1": "WhYBoLu v12 boş altyapı",
-  "//2": "https://discord.gg/SarrpTh",
+  "//1": "OTTOMAN CODE",
   "name": "hello-express",
   "version": "0.0.1",
   "description": "Bu altyapı WhYBoLu Codeye aittir çalınması yasaktır!.",
-  "main": "bot.js",
+  "main": "ottomancode.js",
   "scripts": {
-    "start": "node bot.js"
+    "start": "node ottomancode.js"
   },
   "dependencies": {
     "express": "^4.17.1",
