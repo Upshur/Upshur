@@ -2,7 +2,7 @@
   "//1": "OTTOMAN CODE",
   "name": "hello-express",
   "version": "0.0.1",
-  "description": "Bu altyapı WhYBoLu Codeye aittir çalınması yasaktır!.",
+  "description": "OttomaN Destek & Botlist & Code'ye Aittir!",
   "main": "ottomancode.js",
   "scripts": {
     "start": "node ottomancode.js"
