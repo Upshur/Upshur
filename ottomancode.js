@@ -15,7 +15,7 @@ const snekfetch = require('snekfetch');
 
 const app = express();
 app.get("/", (request, response) => {
-  console.log(Date.now() + "WhYBoLu Code v12 boş altyapı hostlandı!");
+  console.log(Date.now() + "OttomaN Destek & Botlist & Code v12 Altyapı Başarıyla Hostlandı!");
   response.sendStatus(200);
 });
 app.listen(process.env.PORT);
