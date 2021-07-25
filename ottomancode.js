@@ -81,6 +81,53 @@ client.load = command => {
         }
     });
 };
+///fake katıl
+
+client.on('message', async message => {
+if (message.content === 'fakekatıl') { // Buraya ne yazarsanız yazdığınız şeye göre çalışır
+  client.emit('guildMemberAdd', message.member || await message.guild.fetchMember(message.author));
+    }
+});
+
+///fake ayrıl
+
+client.on('message', async message => {
+if (message.content === 'fakeayrıl') { // Buraya ne yazarsanız yazdığınız şeye göre çalışır
+  client.emit('guildMemberRemove', message.member || await message.guild.fetchMember(message.author));
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
