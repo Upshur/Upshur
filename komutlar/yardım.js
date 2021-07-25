@@ -13,11 +13,58 @@ module.exports.run = async (bot, message, args) => {
     var reactions = sentEmbed.createReactionCollector(filter, {
       time: 30000
     });
-    reactions.on("end", () => sentEmbed.edit("İşlem iptal oldu!☺));
+    reactions.on("end", () => sentEmbed.edit("İşlem iptal oldu!☺"));
     reactions.on("collect", async function(reaction) {
       if (reaction.emoji.name === "♣") {
 
-        message.channel.send(`O mğkemmel yardım menüsü`);
+        message.channel.send(`O mğkemmel yardım menüsü
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        `);
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
       }
     });
   });
