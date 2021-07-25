@@ -106,7 +106,35 @@ client.on("ready", async () => {
   if (botVoiceChannel) botVoiceChannel.join().catch(err => console.error("Bot ses kanalına bağlanırken bir hata oluştu!"));
 });
 
+///reklam-engel
 
+client.on("message", msg => {
+let db = require('quick.db')
+ let e = db.fetch(`reklamengel_${msg.guild.id}`)
+if(e === "aktif"){  
+      const reklam = [".com", ".net", ".xyz", ".tk", ".pw", ".io", ".me", ".gg", "www.", "https", "http", ".gl", ".org", ".com.tr", ".biz", "net", ".rf.gd", ".az", ".party", "discord.gg",];
+        if (reklam.some(word => msg.content.includes(word))) {
+          try {
+            if (!msg.member.hasPermission("BAN_MEMBERS")) {
+                  msg.delete();
+                         const batusuyar = new Discord.MessageEmbed()
+.setColor('RED')
+.setTitle("Reklam Engel Filtresi")
+.setDescription(`Sunucuda Reklam Engel Filtresi Açık Reklam Yapamazsın <@${msg.authorid}>`)
+                         
+    
+                    return msg.channel.send(batusuyar).then(msg => msg.delete(3000));
+   
+ 
+  msg.delete(3000);                              
+ 
+            }              
+          } catch(err) {
+            console.log(err);
+          }
+        }}
+else return;
+    });
 
 
 
