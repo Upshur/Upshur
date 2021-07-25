@@ -1,10 +1,12 @@
+
 const Discord = require("discord.js");
 module.exports.run = async (bot, message, args) => {
 
 
   const embed = new Discord.MessageEmbed()
-    .setColor("BLACK")
-    .setDescription(`Botun kurallarını kabul ediyor musun ?`)
+  .setTimestamp()
+  .setColor("BLACK")
+  .setDescription(`Botun kurallarını kabul ediyor musun ?`)
   message.channel.send(embed).then(async function(sentEmbed) {
     const emojiArray = ["♣"];
     const filter = (reaction, user) =>
@@ -17,9 +19,10 @@ module.exports.run = async (bot, message, args) => {
     reactions.on("collect", async function(reaction) {
       if (reaction.emoji.name === "♣") {
 
-        message.channel.send(`O mğkemmel yardım menüsü
         
+        message.channel.send(`
         
+      
         
         
         
