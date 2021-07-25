@@ -301,8 +301,35 @@ client.on("guildMemberAdd", async member => {
     return canvaskanal.send(`🤖 Bu bir bot, ${member.user.tag}`);
 });
 
+///syç
 
+client.on("guildMemberAdd", message => {
+client.guilds.get("844184868111777812").setName(`CodAre { ${message.guild.memberCount} }`);
+});
 
+client.on("guildMemberRemove", message => {  
+client.guilds.get("844184868111777812").setName(`CodAre { ${message.guild.memberCount} }`);
+});
+
+///otorol
+
+client.on('guildMemberAdd', async (member) => {
+  if(db.has(`${member.guild.id}_otorol`)) {
+    var rolID = db.fetch(`${member.guild.id}_otorol`)
+    member.addRole(rolID)
+  } else {
+    return;
+  }
+  if(db.has(`${member.guild.id}_otokanal`)) {
+    var kanal = client.channels.get(db.fetch(`${member.guild.id}_otokanal`))
+    const embed = new Discord.RichEmbed()
+    .setDescription(`Yeni katılan ${member} kullanıcısına <@&${rolID}> rolü verildi`)
+    .setTimestamp()
+    kanal.send(embed)
+  } else {
+    return;
+  }
+})
 
 
 
