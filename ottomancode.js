@@ -13,6 +13,7 @@ const express = require('express');
 require('./util/eventLoader.js')(client);
 const path = require('path');
 const snekfetch = require('snekfetch');
+const qdb = require('quick.db');
 
 const app = express();
 app.get("/", (request, response) => {
@@ -135,7 +136,27 @@ if(e === "aktif"){
         }}
 else return;
     });
+///sayaç
 
+client.on("guildMemberAdd", member => {
+var kanal = qdb.fetch(`sayackanali_${member.guild.id}`)
+if(!kanal) return;
+var hedef = qdb.fetch(`sayachedef_${member.guild.id}`)
+if(!hedef) return;
+client.channels.cache.get(kanal).send(`${member} Sunucuya katıldı! Hedefimize ulaşmamıza ${hedef - member.guild.memberCount} kişi kaldı!`)
+if(hedef <= member.guild.memberCount){
+  client.channels.cache.get(kanal).send(`Hedefimizi başardık! Sunucumuz ${hedef} kişiye ulaştı!`)
+  qdb.delete(`sayackanali_${member.guild.id}`)
+  qdb.delete(`sayachedef_${member.guild.id}`)
+}
+})
+client.on("guildMemberRemove", member => {
+var kanal = qdb.fetch(`sayackanali_${member.guild.id}`)
+if(!kanal) return;
+var hedef = qdb.fetch(`sayachedef_${member.guild.id}`)
+if(!hedef) return;
+client.channels.cache.get(kanal).send(`${member.user.tag} sunucudan ayrıldı! Hedefimize ulaşmamıza ${hedef - member.guild.memberCount} kişi kaldı!`)
+})
 
 
 
