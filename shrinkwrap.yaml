@@ -5,6 +5,7 @@ dependencies:
   express: 4.17.1
   jimp: 0.16.1
   moment: 2.29.1
+  plasma-db: 1.1.0
   quick.db: 7.1.3
   snekfetch: 4.0.4
 packages:
@@ -1340,6 +1341,10 @@ packages:
     hasBin: true
     resolution:
       integrity: sha1-j0fc7FARtHe2fbA8JDvB8wheiFQ=
+  /plasma-db/1.1.0:
+    dev: false
+    resolution:
+      integrity: sha512-kdP7p9xY8eplgvmkXtDnDu37zwTcGcas8h/t2qscaYP3YtSkhBkTifK21wl4lldMkN0MvEm1XHZmWThvPHmZ7Q==
   /pngjs/3.4.0:
     dev: false
     engines:
@@ -1803,5 +1808,6 @@ specifiers:
   express: ^4.17.1
   jimp: ^0.16.1
   moment: ^2.29.1
+  plasma-db: ^1.0.0
   quick.db: ^7.1.3
   snekfetch: ^4.0.4
