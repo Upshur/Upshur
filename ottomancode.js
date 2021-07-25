@@ -143,9 +143,9 @@ var kanal = qdb.fetch(`sayackanali_${member.guild.id}`)
 if(!kanal) return;
 var hedef = qdb.fetch(`sayachedef_${member.guild.id}`)
 if(!hedef) return;
-client.channels.cache.get(kanal).send(`${member} Sunucuya katıldı! Hedefimize ulaşmamıza ${hedef - member.guild.memberCount} kişi kaldı!`)
+client.channels.cache.get(kanal).send(`${member} ♥ Sunucuya katıldı! Hedefimize ulaşmamıza ${hedef - member.guild.memberCount} kişi kaldı!`)
 if(hedef <= member.guild.memberCount){
-  client.channels.cache.get(kanal).send(`Hedefimizi başardık! Sunucumuz ${hedef} kişiye ulaştı!`)
+  client.channels.cache.get(kanal).send(`☺ Hedefimizi başardık! Sunucumuz ${hedef} kişiye ulaştı!`)
   qdb.delete(`sayackanali_${member.guild.id}`)
   qdb.delete(`sayachedef_${member.guild.id}`)
 }
@@ -155,7 +155,7 @@ var kanal = qdb.fetch(`sayackanali_${member.guild.id}`)
 if(!kanal) return;
 var hedef = qdb.fetch(`sayachedef_${member.guild.id}`)
 if(!hedef) return;
-client.channels.cache.get(kanal).send(`${member.user.tag} sunucudan ayrıldı! Hedefimize ulaşmamıza ${hedef - member.guild.memberCount} kişi kaldı!`)
+client.channels.cache.get(kanal).send(`${member.user.tag} ♦ sunucudan ayrıldı! Hedefimize ulaşmamıza ${hedef - member.guild.memberCount} kişi kaldı!`)
 })
 
 
