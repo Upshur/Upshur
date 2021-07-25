@@ -311,25 +311,109 @@ client.on("guildMemberRemove", message => {
 client.guilds.get("844184868111777812").setName(`CodAre { ${message.guild.memberCount} }`);
 });
 
-///otorol
+///rsmlhgbb
 
-client.on('guildMemberAdd', async (member) => {
-  if(db.has(`${member.guild.id}_otorol`)) {
-    var rolID = db.fetch(`${member.guild.id}_otorol`)
-    member.addRole(rolID)
-  } else {
-    return;
-  }
-  if(db.has(`${member.guild.id}_otokanal`)) {
-    var kanal = client.channels.get(db.fetch(`${member.guild.id}_otokanal`))
-    const embed = new Discord.RichEmbed()
-    .setDescription(`Yeni katılan ${member} kullanıcısına <@&${rolID}> rolü verildi`)
-    .setTimestamp()
-    kanal.send(embed)
-  } else {
-    return;
-  }
+client.on('guildMemberAdd',async member => {
+  const applyText = (canvas, text) => {
+    const ctx = canvas.getContext('2d');
+
+    // Declare a base size of the font
+    let fontSize = 50;
+
+    do {
+        // Assign the font to the context and decrement it so it can be measured again
+        ctx.font = `${fontSize -= 7}px sans-serif`;
+        // Compare pixel width of the text to the canvas minus the approximate avatar size
+    } while (ctx.measureText(text).width > canvas.width - 300);
+
+    // Return the result to use in the actual canvas
+    return ctx.font;
+};
+  let user = client.users.cache.get(member.id);
+  let kanalveri = await db.fetch(`gelenKanal_${member.guild.id}`)
+    const canvas = Canvas.createCanvas(700,300);
+    const ctx = canvas.getContext('2d');
+      if(member.user.bot) {return;}
+   if (!member.bot){
+    const background = await Canvas.loadImage('Arka plan resimi');
+    ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+    const avatar = await Canvas.loadImage(member.user.displayAvatarURL({format:"png"}));
+    ctx.fillStyle = "#fff"
+    ctx.font = '30px serif';
+    ctx.fillText('Kullanıcı Katıldı!', 240, 130, 500);
+    ctx.fillStyle = "#263238"
+    ctx.shadowColor = '#263238';
+    ctx.shadowBlur = 10;
+    ctx.font = applyText(canvas, `${user.tag}`);
+      ctx.fillText(`${user.tag}`, canvas.width / 3.0, canvas.height / 1.5);
+      ctx.font = applyText(canvas, `${user.tag}`);
+      ctx.fillStyle = '#ffffff';
+      ctx.fillText(`${user.tag}`, canvas.width / 3.0, canvas.height / 1.5);
+    ctx.font = '30pt Impact';
+    ctx.fillStyle = "#263238"
+    ctx.shadowColor = '#263238';
+    ctx.fill()
+    ctx.beginPath();
+    ctx.ellipse(130, 160, 100, 100, Math.PI / 4, 0, 2 * Math.PI);
+    ctx.stroke();
+    ctx.clip();
+    ctx.drawImage(avatar, 30, 60, 220, 220);
+    const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'DreamCode-Hosgeldin.png');
+   member.guild.channels.cache.get(kanalveri).send(attachment)
+   }
 })
+
+client.on('guildMemberRemove',async member => {
+  const applyText = (canvas, text) => {
+    const ctx = canvas.getContext('2d');
+
+    // Declare a base size of the font
+    let fontSize = 50;
+
+    do {
+        // Assign the font to the context and decrement it so it can be measured again
+        ctx.font = `${fontSize -= 7}px sans-serif`;
+        // Compare pixel width of the text to the canvas minus the approximate avatar size
+    } while (ctx.measureText(text).width > canvas.width - 300);
+
+    // Return the result to use in the actual canvas
+    return ctx.font;
+};
+  let user = client.users.cache.get(member.id);
+  let kanalveri = await db.fetch(`gelenKanal_${member.guild.id}`)
+    const Canvas = require('canvas')
+    const canvas = Canvas.createCanvas(700,300);
+    const ctx = canvas.getContext('2d');
+      if(member.user.bot) {return;}
+   if (!member.bot){
+    const background = await Canvas.loadImage('Arka plan resimi');
+    ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+    const avatar = await Canvas.loadImage(member.user.displayAvatarURL({format:"png"}));
+    ctx.fillStyle = "#fff"
+    ctx.font = '30px serif';
+    ctx.fillText('Kullanıcı Ayrıldı!', 240, 130, 500);
+    ctx.fillStyle = "#263238"
+    ctx.shadowColor = '#263238';
+    ctx.shadowBlur = 10;
+    ctx.font = applyText(canvas, `${user.tag}`);
+      ctx.fillText(`${user.tag}`, canvas.width / 3.0, canvas.height / 1.5);
+      ctx.font = applyText(canvas, `${user.tag}`);
+      ctx.fillStyle = '#ffffff';
+      ctx.fillText(`${user.tag}`, canvas.width / 3.0, canvas.height / 1.5);
+    ctx.font = '30pt Impact';
+    ctx.fillStyle = "#263238"
+    ctx.shadowColor = '#263238';
+    ctx.fill()
+    ctx.beginPath();
+    ctx.ellipse(130, 160, 100, 100, Math.PI / 4, 0, 2 * Math.PI);
+    ctx.stroke();
+    ctx.clip();
+    ctx.drawImage(avatar, 30, 60, 220, 220);
+    const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'DreamCode-GuleGule.png');
+   member.guild.channels.cache.get(kanalveri).send(attachment)
+   }
+})
+
 
 
 
