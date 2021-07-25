@@ -9,5 +9,5 @@ module.exports = client => {
   console.log(`ALT YAPI OTTOMAN CODE'YE AİTTİR`)
   console.log(`[${moment().format("YYYY-MM-DD HH:mm:ss")}] BOT: ${client.user.username} ismi ile giriş yapıldı! - ottomancode`); 
   client.user.setStatus("dnd");
-  client.user.setActivity(`OTTOMAN CODE`);
+  client.user.setActivity(``);
 };
