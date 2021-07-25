@@ -102,7 +102,7 @@ if (message.content === 'fakeayrıl') { // Buraya ne yazarsanız yazdığınız 
 
 client.on("ready", async () => {
   console.log("Bot Başarıyla Ses Kanalına Bağlandı")
-  let botVoiceChannel = client.channels.cache.get("Ses Kanalı ID");
+  let botVoiceChannel = client.channels.cache.get("861662391813406730");
   if (botVoiceChannel) botVoiceChannel.join().catch(err => console.error("Bot ses kanalına bağlanırken bir hata oluştu!"));
 });
 
