@@ -1,22 +1,38 @@
 const Discord = require("discord.js");
+module.exports.run = async (bot, message, args) => {
 
-module.exports.run = async (client, message, args) => {
-    try {
-        await message.channel.send(`Komutlar: \n${client.commands.map(props => `\`${props.help.name}\``).join(" | ")}`);
-    } catch (e) {
-        throw e;
-    }
-}
+
+  const embed = new Discord.MessageEmbed()
+    .setColor("BLACK")
+    .setDescription(`Botun kurallarını kabul ediyor musun ?`)
+  message.channel.send(embed).then(async function(sentEmbed) {
+    const emojiArray = ["♣"];
+    const filter = (reaction, user) =>
+      emojiArray.includes(reaction.emoji.name) && user.id === message.author.id;
+    await sentEmbed.react(emojiArray[0]).catch(function() {});
+    var reactions = sentEmbed.createReactionCollector(filter, {
+      time: 30000
+    });
+    reactions.on("end", () => sentEmbed.edit("İşlem iptal oldu!☺));
+    reactions.on("collect", async function(reaction) {
+      if (reaction.emoji.name === "♣") {
+
+        message.channel.send(`O mğkemmel yardım menüsü`);
+      }
+    });
+  });
+};
 
 module.exports.conf = {
+  aliases: [],
+  permLevel: 2,
   enabled: true,
-  guildOnly: false,
-  aliases: ["commands"],
-  permLevel: 0
+  guildOnly: true,
+  kategori: "moderasyon"
 };
 
 module.exports.help = {
-  name: 'komutlar',
-  description: 'Botta bulunan tüm komutları gösterir',
-  usage: 'komutlar'
+  name: "yardım",
+  description: "onaylamalı yardım",
+  usage: "!virusuntaşaklarınakurban"
 };
