@@ -158,7 +158,23 @@ if(!hedef) return;
 client.channels.cache.get(kanal).send(`${member.user.tag} ♦ sunucudan ayrıldı! Hedefimize ulaşmamıza ${hedef - member.guild.memberCount} kişi kaldı!`)
 })
 
+///seviye sistemi
 
+const Levels = require('discord-xp');
+
+Levels.setURL('MONGODB URL');
+
+client.on('message', async message => {
+    if (!message.guild) return;
+    if (message.author.bot) return;
+
+    const randomXp = Math.floor(Math.random() * 9) + 1;
+    const hasLeveledUp = await Levels.appendXp(message.author.id, message.guild.id, randomXp);
+    if (hasLeveledUp) {
+        const user = await Levels.fetch(message.author.id, message.guild.id);
+        message.channel.send(`Tebrikler ${message.author}, ${user.level} Leveline atladın!`);
+    }
+})
 
 
 
