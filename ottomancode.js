@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+Discord.Constants.DefaultOptions.ws.properties.$browser = "Discord Android"
 const client = new Discord.Client();
 const ayarlar = require('./ayarlar.json');
 const chalk = require('chalk');
