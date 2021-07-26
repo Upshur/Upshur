@@ -271,7 +271,42 @@ client.on('guildMemberRemove',async member => {
    member.guild.channels.cache.get(kanalveri).send(attachment)
    }
 })
+///otorol
 
+client.on('guildMemberAdd', async (member, guild, message) => {
+ 
+let role = db.fetch(`otorolisim_${member.guild.id}`)
+ let otorol = db.fetch(`autoRole_${member.guild.id}`)
+ let i = db.fetch(`otorolKanal_${member.guild.id}`)
+ if (!otorol || otorol.toLowerCase() === 'yok') return;
+else {
+ try {
+ 
+ 
+  if (!i) return
+if (!role) {
+  member.addRole(member.guild.roles.get(otorol))
+                        var embed = new Discord.RichEmbed()
+                        .setDescription("**Sunucuya Yeni Katılan** @" + member.user.tag + " **Kullanıcısına** <@&" + otorol + ">  **Rolü verildi.**")
+                        .setColor('0x36393E')
+                        .setFooter(`Otorol Sistemi`)
+     member.guild.channels.get(i).send(embed)
+} else if (role) {
+    member.addRole(member.guild.roles.get(otorol))
+                        var embed = new Discord.RichEmbed()
+                        .setDescription(`**Sunucuya Yeni Katılan** \`${member.user.tag}\` **Kullanıcısına** \`${role}\` **Rolü verildi.**`)
+                        .setColor('0x36393E')
+                        .setFooter(`Otorol Sistemi`)
+     member.guild.channels.get(i).send(embed)
+ 
+}
+ 
+ } catch (e) {
+ console.log(e)
+}
+}
+ 
+});
 
 
 
